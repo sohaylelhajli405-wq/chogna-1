@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque Pikachu - CPGE ECT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ecran du Sas Spatial (Porte d'accès) -->
+    <div id="airlock-screen" class="space-door-container">
+        <div class="warning-sign">⚠️ DANGER - ZONE SÉCURISÉE ⚠️</div>
+        <div class="portal-door">
+            <div class="security-terminal">
+                <h2>Veuillez entrer le code d'accès</h2>
+                <input type="password" id="passcode-input" placeholder="Code secret...">
+                <button id="unlock-btn">Déverrouiller la porte</button>
+                <p id="error-msg" class="hidden">Code secret incorrect ! Veuillez réessayer.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran Principal de la Bibliothèque -->
+    <div id="main-library" class="library-container hidden">
+        <header>
+            <h1>Bienvenue dans la Bibliothèque Pikachu</h1>
+            <p>Ici, vous trouverez tout ce dont vous avez besoin pour réviser les examens des CPGE (Filière ECT).</p>
+        </header>
+
+        <main>
+            <section class="qcm-section">
+                <h2>Module de Tests QCM</h2>
+                
+                <!-- Sélection de la matière -->
+                <div class="material-select">
+                    <button onclick="loadQuiz('eco')">Économie Générale (L'économie de marché)</button>
+                    <button onclick="loadQuiz('droit')">Droit (La règle de droit)</button>
+                </div>
+
+                <!-- Boîte du Quiz QCM -->
+                <div id="quiz-box" class="hidden">
+                    <h3 id="question-title"></h3>
+                    <div id="options-container" class="options-grid"></div>
+                    <p id="feedback-msg"></p>
+                    <button id="next-btn" class="hidden" onclick="nextQuestion()">Question suivante</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Audio Mozart -->
+    <audio id="mozart-audio" src="audio/mozart.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
